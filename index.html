@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Судоку</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <header class="app-header">
+      <h1 class="app-title">СУДОКУ</h1>
+      <p class="app-subtitle">Лабораторная работа №2</p>
+    </header>
+
+    <section class="controls-panel">
+      <div class="control-group">
+        <label for="difficulty-select" class="control-label">Сложность:</label>
+        <select id="difficulty-select" class="form-select">
+          <option value="easy">Легкий</option>
+          <option value="medium" selected>Средний</option>
+          <option value="hard">Сложный</option>
+        </select>
+      </div>
+
+      <div class="buttons-group">
+        <button id="btn-new-game" class="btn btn-primary">Новая игра</button>
+        <button id="btn-check" class="btn btn-secondary">Проверить</button>
+        <button id="btn-hint" class="btn btn-secondary">Подсказка</button>
+        <button id="btn-clear" class="btn btn-secondary">Очистить введённое</button>
+      </div>
+    </section>
+
+    <section class="status-bar">
+      <div class="status-item">
+        <span class="status-title">Время:</span>
+        <span id="timer-display" class="status-value">00:00</span>
+      </div>
+      <div class="status-item">
+        <span class="status-title">Ошибки:</span>
+        <span id="mistakes-display" class="status-value">0</span>
+      </div>
+      <div class="status-item">
+        <span class="status-title">Подсказок:</span>
+        <span id="hints-display" class="status-value">0</span>
+      </div>
+      <div class="status-item">
+        <span class="status-title">Уровень:</span>
+        <span id="level-display" class="status-value">Средний</span>
+      </div>
+    </section>
+
+    <div id="status-message" class="message-banner message-hidden"></div>
+
+    <main class="board-wrapper">
+      <div id="sudoku-board" class="sudoku-board" aria-label="Поле игры Судоку 9 на 9"></div>
+    </main>
+
+    <section class="keypad-panel" aria-label="Панель ввода цифр">
+      <div class="keypad-grid">
+        <button class="key-btn" data-number="1">1</button>
+        <button class="key-btn" data-number="2">2</button>
+        <button class="key-btn" data-number="3">3</button>
+        <button class="key-btn" data-number="4">4</button>
+        <button class="key-btn" data-number="5">5</button>
+        <button class="key-btn" data-number="6">6</button>
+        <button class="key-btn" data-number="7">7</button>
+        <button class="key-btn" data-number="8">8</button>
+        <button class="key-btn" data-number="9">9</button>
+        <button id="btn-erase" class="key-btn key-btn-erase" data-action="erase">Стереть</button>
+      </div>
+    </section>
+
+    <section class="records-section">
+      <div class="records-header">
+        <h2 class="section-title">Таблица рекордов (Лучшее время)</h2>
+        <button id="btn-reset-records" class="btn btn-small">Сбросить рекорды</button>
+      </div>
+      <div class="records-grid">
+        <div class="record-card">
+          <span class="record-level">Легкий</span>
+          <span id="record-easy" class="record-time">—</span>
+        </div>
+        <div class="record-card">
+          <span class="record-level">Средний</span>
+          <span id="record-medium" class="record-time">—</span>
+        </div>
+        <div class="record-card">
+          <span class="record-level">Сложный</span>
+          <span id="record-hard" class="record-time">—</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p>Управление: клик по ячейке + клавиатура (1–9, Backspace, стрелки) или цифровая панель.</p>
+      <p style="margin-top: 8px;"><a href="visualizer/index.html" style="color: #0b57d0; text-decoration: none; font-weight: 600;">🔍 Открыть пошаговый визуализатор генерации Судоку →</a></p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
